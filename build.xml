@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GalaxyJavaProject" basedir="." default="package-all">
+	<property name = "source.dir" value="src"/>
+	<property name="build.dir" value="build/classes"/>
+	<property name="jar.dir" value="jars"/>
+	
+	<target name="clean">
+	   <delete dir="${build.dir}"/>
+	   <delete dir="${jar.dir}"/>
+	</target>
+	<target name="prepare">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${jar.dir}"/>
+	</target>
+	<target name="compile">
+	   <javac srcdir="${source.dir}" destdir="${build.dir}"/>
+	</target>
+	<target name="package">
+		<jar basedir="${build.dir}" destfile="${jar.dir}/galaxy.jar"></jar>
+	</target>
+	
+    <target name="package-all" depends="clean,prepare,compile,package">
+    
+    </target>
+
+	
+</project>
